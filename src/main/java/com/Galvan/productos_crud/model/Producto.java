@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+
 @Data
 //Constructor
 @NoArgsConstructor
@@ -19,8 +22,8 @@ public class Producto {
     //Campos de la BD
     @Column(name = "nombre", nullable = false, length=255) //Campos no nulos
     private String nombre;
-    @Column(name="precio", nullable = false)
-    private double precio;
+    @Column(name="precio", nullable = false,  precision = 10, scale = 2)
+    private BigDecimal precio;
     @Column(name = "stock", nullable = false)
     private int stock;
     @Column(name = "categoria", nullable = false)

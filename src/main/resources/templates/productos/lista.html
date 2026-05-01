@@ -25,15 +25,17 @@ xmlns:th="http://www.thymeleaf.org">
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td th:each="p: ${productos}"></td>
+         <tr th:each="p : ${productos}">
+            <td th:text="${p.id}"></td>
             <td th:text="${p.nombre}"></td>
+            <td th:text="${p.precio}"></td>
+            <td th:text="${p.stock}"></td>
+            <td th:text="${p.categoria}"></td>
+            <td><a th:href="@{/productos/editar/{id}(id=${p.id})}">Editar</a><a th:href="@{/productos/eliminar/{id}(id=${p.id})}">Eliminar</a></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="">Editar</a><a href="">Eliminar</a></td>
         </tr>
     </tbody>
+    <tr><a th:href="@{/productos/nuevo}">Nuevo</a></tr>
 </table>
     </section>
 <footer class="footer">

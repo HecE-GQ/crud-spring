@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th lang="es">
+<htm 
+lang="es"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +14,31 @@
     </header>
     <section class="main-form">
         <h2>Productos</h2>
-        <form action="">
-            <table class="table">
-                <thead class="head-table">
+        <form th:object="${producto}" th:action="@{/productos/guardar}" method="POST">
+            <table>
+                <thead>
                     <tr>
-                        
+                        <th>Tabla</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Categoria</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+            <td><input th:field="*{id}" type="hidden"></td>
+            <td><input th:field="*{nombre}" placeholder="Nombre"></td>                                                     
+            <td><input th:field="*{precio}" type="text" placeholder="Precio"></td>    
+            <td><input th:field="*{stock}" type="text" placeholder="Stock"></td>    
+            <td><input th:field="*{categoria}" type="text" placeholder="Categoria"></td>    
+            <td><button type="submit" th:text="${producto.id != NULL} ? 'Actualizar' : 'Crear'"></button></td>    
+            </tr>
+            </tbody>
             </table>
         </form>
-        <a href="/productos/nuevo"><button type="button">Agregar</button></a>
+        <a th:href="@{/productos}">Cancelar</a>
     </section>
     <footer>
         <p>@Derechos reservados Hector Eduardo Galvan Quiroz 2026</p>

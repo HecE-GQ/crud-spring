@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Productos CRUD</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Hector Eduardo Galvan Quiroz</h1>
+        <p>CRUD con Java y Spring-Boot</p>
+    </header>
+    <section class="main">
+        <table class="table-with-footer">
+    <caption>PRODUCTOS</caption>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col" class="col-number">Nombre</th>
+            <th scope="col" class="col-number">Precio</th>
+            <th scope="col" class="col-number">Stock</th>
+            <th scope="col" class="col-number">Categoria</th>
+            <th scope="col" class="col-number">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td th:each="p: ${productos}"></td>
+            <td th:text="${p.nombre}"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="">Editar</a><a href="">Eliminar</a></td>
+        </tr>
+    </tbody>
+</table>
+    </section>
+<footer class="footer">
+    <p>Derechos reservados @Hector Edurdo Galvan Quiroz 2026</p>
+</footer>
+</body>
+</html>
